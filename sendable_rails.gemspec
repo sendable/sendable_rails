@@ -9,14 +9,13 @@ Gem::Specification.new do |s|
   s.version     = SendableRails::VERSION
   s.authors     = ["Umair Siddique"]
   s.email       = ["umairsiddique@gmail.com"]
-  s.homepage    = "TODO"
-  s.summary     = "TODO: Summary of SendableRails."
-  s.description = "TODO: Description of SendableRails."
+  s.homepage    = "https://github.com/sendable/sendable_rails"
+  s.summary     = "Sendable delivery method for ActionMailer."
+  s.description = "Sendable delivery method for ActionMailer."
   s.license     = "MIT"
 
   s.files = Dir["{app,config,db,lib}/**/*", "MIT-LICENSE", "Rakefile", "README.md"]
 
-  s.add_dependency "rails", "~> 5.1.3"
-
+  s.add_development_dependency "rails", "~> 5.1.3"
   s.add_development_dependency "sqlite3"
 end
