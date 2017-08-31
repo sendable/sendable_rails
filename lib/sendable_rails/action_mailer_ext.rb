@@ -21,8 +21,18 @@ module SendableRails
           assigns: assigns,
         }
 
-        res = Net::HTTP.post_form(uri, params)
-        content = res.body
+        headers = {
+          'Authorization': "ApiKey #{api_key}",
+        }
+
+        http = Net::HTTP.new(uri.host, uri.port)
+        http.use_ssl = true
+
+        request = Net::HTTP::Post.new(uri.request_uri, headers)
+        request.set_form_data(params)
+        response = http.request(request)
+
+        content = response.body
 
         [{
           content: content
