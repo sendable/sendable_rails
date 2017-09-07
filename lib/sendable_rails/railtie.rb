@@ -4,8 +4,13 @@ module SendableRails
 
     initializer "sendable.configure" do |app|
       SendableRails.config do |config|
-        config.project_id = app.config.sendable[:project_id]
-        config.api_key = app.config.sendable[:api_key]
+        if app.config.sendable[:project_id]
+          config.project_id = app.config.sendable[:project_id]
+        end
+
+        if app.config.sendable[:api_key]
+          config.api_key = app.config.sendable[:api_key]
+        end
       end
     end
   end

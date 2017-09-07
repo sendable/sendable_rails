@@ -1,5 +1,6 @@
 require 'net/http'
 require 'uri'
+require 'json'
 
 module SendableRails
   module ActionMailerExt
@@ -32,11 +33,19 @@ module SendableRails
         request.set_form_data(params)
         response = http.request(request)
 
-        content = response.body
+        email = JSON.parse(response.body)
 
-        [{
-          content: content
-        }]
+        formats = []
+
+        if (email['html'])
+          formats << { content_type: 'text/html', body: email['html'] }
+        end
+
+        if (email['plain'])
+          formats << { content_type: 'text/plain', body: email['text'] }
+        end
+
+        formats
       else
         super
       end
