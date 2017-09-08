@@ -1,9 +1,11 @@
+require 'sendable'
+
 module SendableRails
   class Railtie < Rails::Railtie
     config.sendable = ActiveSupport::OrderedOptions.new
 
     initializer "sendable.configure" do |app|
-      SendableRails.config do |config|
+      Sendable.config do |config|
         if app.config.sendable[:project_id]
           config.project_id = app.config.sendable[:project_id]
         end
