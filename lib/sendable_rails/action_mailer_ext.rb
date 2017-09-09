@@ -12,7 +12,7 @@ module SendableRails
         end
       end
 
-      Sendable.client.email(template_id, params.merge(assigns: assigns))
+      Sendable.client.email(template_id, params.merge(default_params).merge(assigns: assigns))
     end
   end
 end
