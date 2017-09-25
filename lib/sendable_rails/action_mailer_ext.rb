@@ -7,8 +7,9 @@ module SendableRails
 
       assigns = {}
       instance_variables.each do |key|
-        if match = key.to_s.match(/@([^\_]+)/)
-          assigns[match[1]] = instance_variable_get(match[0])
+        if key[0..1] != '@_'
+          name = key[1..-1]
+          assigns[name] = instance_variable_get(key)
         end
       end
 

@@ -1,7 +1,7 @@
 PATH
   remote: .
   specs:
-    sendable_rails (0.3.0)
+    sendable_rails (0.4.5)
       sendable (~> 0.1.0)
 
 GEM
