@@ -25,13 +25,13 @@ $ gem install sendable_rails
 
 There are 2 ways to set up Sendable. You can either set the API key in an environment variable, or pass it in an initializer.
 
-#### Option 1) Environment Variable
+### Option 1) Environment Variable
 
 Add the following environment variable to your application. You can get your API key from the settings page of your Sendable project dashboard.
 
 `SENDABLE_API_KEY`=`YOUR API KEY`
 
-#### Option 2) Initializer
+### Option 2) Initializer
 
 If you don't want to set an environment variable, create a file `config/initializers/sendable.rb` and put this in there:
 
