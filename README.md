@@ -23,20 +23,30 @@ $ gem install sendable_rails
 ```
 ## Setup
 
-### Environment Variables
+There are 2 ways to set up Sendable. You can either set the API key in an environment variable, or pass it in an initializer.
 
-Add the following environment variables to your application. You can get these values from the settings page of your Sendable dashboard.
+#### Option 1) Environment Variable
 
-`SENDABLE_PROJECT_ID`=`YOUR PROJECT ID`
+Add the following environment variable to your application. You can get your API key from the settings page of your Sendable project dashboard.
 
 `SENDABLE_API_KEY`=`YOUR API KEY`
+
+#### Option 2) Initializer
+
+If you don't want to set an environment variable, create a file `config/initializers/sendable.rb` and put this in there:
+
+```ruby
+Sendable.config do |config|
+  config.api_key = 'YOUR API KEY'
+end
+```
 
 ## Usage
 
 The only changes required in your existing `mail` method are:
 
 - Replace `mail` with `sendable_mail`
-- Pass a `template_id` that you can get from your Sendable dashboard
+- Pass a `template` key that you can get from your Sendable project dashboard
 - Instance variables will be available in your templates as `mustache` attributes
 
 Everything else will work as expected. Here is a before and after comparison:
@@ -63,7 +73,7 @@ class UserMailer < ActionMailer::Base
 
   def welcome(user)
     @user = user
-    sendable_mail to: @user.email, template_id: 1
+    sendable_mail to: @user.email, template: 1
   end
 end
 ```
