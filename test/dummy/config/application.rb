@@ -15,8 +15,7 @@ module Dummy
     # -- all .rb files in that directory are automatically loaded.
 
     config.sendable = {
-      project_id: 1,
-      api_key: "abc123",
+      api_key: 'abc123',
     }
   end
 end

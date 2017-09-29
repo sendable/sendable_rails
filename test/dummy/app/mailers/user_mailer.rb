@@ -7,6 +7,6 @@ class UserMailer < ApplicationMailer
   def welcome
     @greeting = "Hi"
 
-    sendable_mail template_id: 1, to: "to@example.org"
+    sendable_mail template: 21, to: "to@example.org"
   end
 end
