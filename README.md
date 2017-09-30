@@ -47,7 +47,7 @@ The only changes required in your existing `mail` method are:
 
 - Replace `mail` with `sendable_mail`
 - Pass a `template` key that you can get from your Sendable project dashboard
-- Instance variables will be available in your templates as `mustache` attributes
+- Instance variables will be passed to your email template
 
 Everything else will work as expected. Here is a before and after comparison:
 
