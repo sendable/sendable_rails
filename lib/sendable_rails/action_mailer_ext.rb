@@ -11,7 +11,7 @@ module SendableRails
         end
       end
 
-      Sendable.client.email(params.merge(default_params).merge(data: data))
+      Sendable.client.email(default_params.merge(params).merge(data: data))
     end
   end
 end
